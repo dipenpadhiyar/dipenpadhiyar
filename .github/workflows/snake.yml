@@ -1,11 +1,8 @@
 name: Generate snake animation
 
 on:
-  schedule: # execute every 12 hours
-    - cron: "* */12 * * *"
-
-  workflow_dispatch:
-
+  schedule:
+    - cron: "0 */12 * * *"
   push:
     branches:
     - master
@@ -15,17 +12,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: generate snake.svg
-        uses: Platane/snk/svg-only@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          github_user_name: ${{ github.dipenpadhiyar }}
-          outputs: dist/snake.svg
+          node-version: "14"
 
+      - name: Clone repository
+        uses: actions/checkout@v2
 
-      - name: push snake.svg to the output branch
-        uses: crazy-max/ghaction-github-pages@v2.6.0
-        with:
-          target_branch: output
-          build_dir: dist
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate snake.svg
+        run: npx snake-render --github-user ${GITHUB_REPOSITORY_OWNER} --output dist/snake.svg
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update snake.svg
+          commit_options: "--no-verify --signoff"
+          branch: output
+          directory: dist
+
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: output
+          publish_dir: dist
