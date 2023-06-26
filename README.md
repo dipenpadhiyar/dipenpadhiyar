@@ -71,6 +71,6 @@
 
 <br clear="both">
 
-<img src="https://raw.githubusercontent.com/dipenpadhiyar/dipenpadhiyar/output/snake.svg" alt="Snake animation" />
+![Snake animation](https://<username>.github.io/<repository>/dist/snake.svg)
 
 ###
