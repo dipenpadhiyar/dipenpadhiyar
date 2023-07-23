@@ -10,7 +10,7 @@
 ###
 
 <div align="center">
-  <img height="150" src="https://media.giphy.com/media/mql4KQroAI2T6/giphy.gif"  autoplay />
+   <img id="gifImage" height="150" src="https://media.giphy.com/media/mql4KQroAI2T6/giphy.gif" />
 </div>
 
 ###
@@ -66,6 +66,19 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" height="30" alt="tensorflow logo"  />
 </div>
+
+<script>
+    // Get a reference to the image element
+    const gifImage = document.getElementById('gifImage');
+
+    // Start the GIF animation automatically
+    gifImage.addEventListener('load', () => {
+      gifImage.style.visibility = 'visible'; // Show the image after it loads (optional)
+      gifImage.style.animation = 'none';     // Disable any existing animation
+      gifImage.offsetHeight;                 // Trigger a reflow, applying the style change
+      gifImage.style.animation = null;       // Enable animation again
+    });
+  </script>
 
 ###
 
