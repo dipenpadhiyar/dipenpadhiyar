@@ -10,7 +10,7 @@
 ###
 
 <div align="center">
-   <img height="350" src="https://media.giphy.com/media/mql4KQroAI2T6/giphy.gif" />
+  <img height="300" src="https://media.giphy.com/media/mql4KQroAI2T6/giphy.gif"  />
 </div>
 
 ###
@@ -66,6 +66,7 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" height="30" alt="tensorflow logo"  />
 </div>
+
 ###
 
 <br clear="both">
