@@ -10,7 +10,7 @@
 ###
 
 <div align="center">
-  <img height="150" src="https://media.giphy.com/media/mql4KQroAI2T6/giphy.gif"  />
+  <img height="150" src="https://media.giphy.com/media/mql4KQroAI2T6/giphy.gif"  autoplay />
 </div>
 
 ###
